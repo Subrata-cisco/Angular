@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Angularjs Filter example by Subrata</title>
+</head>
+
+<body ng-init="students = [
+        {fName:'subrata' , lName:'saha' ,         fee:30,  bd:1288323623006 },
+        {fName:'Mamita' ,  lName:'Bhattacharjee' ,fee:28,  bd:1288324623006 },
+        {fName:'Subra' ,   lName:'bhat' ,         fee:25,  bd:1288325623006 }]">
+
+    <div>
+        <input type="text" placeholder="Search by First Name " ng-model="name"/> {{name}}
+    </div>
+
+    <h1>All the Students by first name and last name</h1>
+
+    <!-- Filter scope variable name and orderby array :'complex type' example -->
+    <ul>
+        <li ng-repeat=" student in students | filter:name | orderBy : 'lName' | lowercase  ">
+            First Name :: {{student.fName }} -->
+            Last Name :: {{student.lName}} -->
+            Fee Pending :: {{student.fee | currency :'$'}} -->
+            DOB :: {{student.bd | date:'dd mm yyyy' }}
+        </li>
+    </ul>
+
+</body>
+<script src="scripts/angular.min.js"></script>
+</html>

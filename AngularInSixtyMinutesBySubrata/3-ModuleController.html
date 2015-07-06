@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp" ng-controller="studentController">
+<head>
+    <meta charset="UTF-8">
+    <title>View Controller Example by Subrata</title>
+</head>
+
+<body>
+    <h3>Diplsyaing the Students using Angular Controller</h3>
+        <div>
+            <ul>
+                <div>
+
+                    <li ng-repeat="student in students | orderBy:bd ">{{student.fName}} - {{student.lName}} </li>
+
+                    <li ng-repeat="course in courses">{{course.cName}} branch</li>
+
+                    <li ng-repeat="c in c1">{{c}} ppp</li>
+
+                </div>
+            </ul>
+        </div>
+</body>
+
+<script src="scripts/angular.min.js"></script>
+
+<script>
+
+    <!-- create a module and then assign the controller for the view  -->
+
+    var app = angular.module('studentApp',[]);
+    app.controller('studentController',StudentController);
+
+    <!-- multiple data in a single controller , multiple controller can be used using routes.-->
+    function StudentController($scope){
+        $scope.students = [
+            {fName:'Subrata' , lName:'saha' ,         fee:30,  bd:1288323623006 },
+            {fName:'Mamita' ,  lName:'Bhattacharjee' ,fee:28,  bd:1288324623006 },
+            {fName:'Subra' ,   lName:'bhat' ,         fee:25,  bd:1288325623006 }
+        ];
+
+        $scope.courses = [
+            {cName:'CS',percentRequired:80},
+            {cName:'EC',percentRequired:79}
+        ];
+    }
+
+    <!-- dont know why the following is not working ?? -->
+    var controllers = {};
+    controllers.c1 = function($scope){
+        $scope.person1 = 'subrata-1';
+    }
+    controllers.c2 = function($scope){
+        $scope.person2 = 'subrata-2';
+    }
+    app.controller = controllers ;
+
+</script>
+
+</html>
+
+<!--
+ Big Picture ::
+                Module
+                  Config
+                     Routes
+                        View   -- ($Scope is the glue between View and Controller)
+                          Directive
+                        Controller
+                          Factory
+
+
+  Multiple controller :
+  <div class="widget" ng-controller="widgetController">
+    <p>Stuff here</p>
+  </div>
+
+  <div class="menu" ng-controller="menuController">
+    <p>Other stuff here</p>
+  </div>
+-->
+

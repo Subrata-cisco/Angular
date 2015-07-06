@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="routeModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Route example by Subrata </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="scripts/factoryRoute.js"></script>
+
+</head>
+<body ng-controller="routeController">
+<h2>The Factory Example demo</h2>
+<ul>
+    <li ng-repeat=" student in students | filter:name | orderBy : 'lName' | lowercase  ">
+        First Name :: {{student.fName }}
+        Last Name :: {{student.lName}}
+    </li>
+</ul>
+
+<a href="#ListStudent" >List Student</a>
+<a href="#AddStudent" >Add Student</a>
+
+<div ng-view>
+
+</div>
+</body>
+
+</html>
+

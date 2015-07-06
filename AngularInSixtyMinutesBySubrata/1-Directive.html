@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+    <title>
+        Angularjs Directive example by Subrata !!
+    </title>
+</head>
+
+<body >
+
+    <!-- Directive ng-model example -->
+    <div>
+       <input type="text" placeholder="Enter your name" ng-model="name1"/> {{name1}}
+    </div>
+
+    <!-- Directive ng-mind example -->
+    <div>
+        <input type="text" ng-model="name" placeholder="Enter your name">
+        <h1>Hello <span ng-bind="name"></span></h1>
+    </div>
+
+    <!-- Directive ng-click example -->
+    <div>
+        <button ng-click="count = count + 1" ng-init="count=0">Increment</button>
+        <span>count: {{count}}</span>
+    </div>
+
+    <!-- Directive ng-repeat example -->
+    <div ng-init=" names = ['Subrata' , 'Mamita' , 'Khushi']">
+      <h1>All the names from array :: </h1>
+        <ul><li ng-repeat="firstNames in names">{{firstNames}}</li></ul>
+    </div>
+
+
+    <script src="scripts/angular.min.js"></script>
+
+</body>
+
+</html>

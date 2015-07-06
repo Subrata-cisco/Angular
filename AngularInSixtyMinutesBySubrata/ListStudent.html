@@ -1,0 +1,9 @@
+<div ng-controller="routeController">
+    <h2>Listing the Student Data</h2>
+    <ul>
+        <li ng-repeat=" student in students | filter:name | orderBy : 'lName' | lowercase  ">
+            First Name :: {{student.fName }}
+            Last Name :: {{student.lName}}
+        </li>
+    </ul>
+</div>
